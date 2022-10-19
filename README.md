@@ -7,13 +7,7 @@ Resources are to be downloaded from the highlighted url, data extracted from the
 
 # Table of Contents
 
-<<<<<<< HEAD
-- Download  server access log file on a daily basis.
-- Extract task; extracts the fields `timestamp` and `visitorid` .
-- Transform task; Capitalizing the `visitorid`.
-- Load task; Compress the extracted and transformed data.
-- Create pipeline block.
-=======
+
 1.1 Download  server access log file on a daily basis.
 
 1.2 Extract task; extracts the fields `timestamp` and `visitorid`.
@@ -23,7 +17,6 @@ Resources are to be downloaded from the highlighted url, data extracted from the
 1.4 Load task; Compress the extracted and transformed data.
 
 1.5 Create pipeline block.
-
 
 
 ## Task 1.1 Download
@@ -40,4 +33,4 @@ Load task compresses both the extracted and transformed data.
 
 ## Task 1.4 Pipeline Block
 The final task is to create the pipeline block of the tasks.
->>>>>>> 0330f43 (Initial commit on DAG and README file.)
+
