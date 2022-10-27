@@ -29,28 +29,28 @@ dag = DAG(
 # define the task 'download'
 download = BashOperator(
     task_id='download',
-    bash_command='wget "https://cf-courses-data.s3.us.cloud-object-storage.appdomain.cloud/IBM-DB0250EN-SkillsNetwork/labs/Apache%20Airflow/Build%20a%20DAG%20using%20Airflow/web-server-access-log.txt"',
+    bash_command='wget "https://cf-courses-data.s3.us.cloud-object-storage.appdomain.cloud/IBM-DB0250EN-SkillsNetwork/labs/Apache%20Airflow/Build%20a%20DAG%20using%20Airflow/web-server-access-log.txt" -O ~/Zen/Airflow-ETL-S.A.L.P/web-server-access-log.txt',
     dag=dag,
 )
 
 #defining the task 'extract'
 extract = BashOperator(
     task_id='extract',
-    bash_command='cut -f 1,4 -d"#" web-server-access-log.txt > ~/Zen/Airflow-ETL_Server_Access_Log_Processing/extracted.txt',
+    bash_command='cut -f1,4 -d"#" ~/Zen/Airflow-ETL-S.A.L.P/web-server-access-log.txt > ~/Zen/Airflow-ETL-S.A.L.P/extracted.txt',
     dag=dag,
 )
 
 # 'Transform' task.
 transform = BashOperator(
     task_id='transform',
-    bash_command='tr "[a-z]" "[A-Z]" < ~/Zen/Airflow-ETL_Server_Access_Log_Processing/extracted.txt > ~/Zen/Airflow-ETL_Server_Access_Log_Processing/capitalized.txt',
+    bash_command='tr "[a-z]" "[A-Z]" < ~/Zen/Airflow-ETL-S.A.L.P/extracted.txt > ~/Zen/Airflow-ETL-S.A.L.P/capitalized.txt',
     dag=dag,
 )
 
 # 'Load' Task.
 load = BashOperator(
     task_id='load',
-    bash_command='zip log.zip capitalized.txt',
+    bash_command='zip log.zip ~/Zen/Airflow-ETL-S.A.L.P/capitalized.txt',
     dag=dag,
 )
 
